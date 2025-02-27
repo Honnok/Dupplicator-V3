@@ -1,0 +1,13 @@
+*{
+    background-color: darkgrey;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.bt {
+    display: flex;
+    flex-direction: column;
+}
+.selfolder{
+    display: flex;
+    width: 100%;
+}

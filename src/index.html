@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détecteur de doublons Sims 4</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Détecteur de doublons Sims 4</h1>
+    <div class="bt">
+        <div class="selfolder">
+            <button id="select-folder">Sélectionner le dossier mods</button>
+            <span id="selected-folder-path" style="margin-left: 10px; font-weight: bold;">Aucun dossier sélectionné</span>
+        </div>
+        
+        <button id="scan-duplicates">Détecter les doublons</button>
+        <button id="delete-duplicates">Supprimer les doublons</button>
+    </div>
+    
+    <table id="duplicates-table">
+        <thead>
+            <tr>
+                <th>Fichier</th>
+                <th>Doublon de</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // Sélectionner un dossier
+        document.getElementById('select-folder').addEventListener('click', async () => {
+        const folderPath = await window.electronAPI.openFolderDialog();
+        if (folderPath) {
+            localStorage.setItem('savedFolder', folderPath);
+            document.querySelector('#selected-folder-path').textContent = folderPath;
+        } else {
+            document.querySelector('#selected-folder-path').textContent = 'Aucun dossier sélectionné';
+        }
+        });
+    </script>
+</body>
+</html>

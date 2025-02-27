@@ -1,0 +1,25 @@
+{
+  "name": "Dupplicator-V3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Honnok/Dupplicator-V3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Honnok/Dupplicator/issues"
+  },
+  "homepage": "https://github.com/Honnok/Dupplicator#readme",
+  "devDependencies": {
+    "electron": "^34.3.0"
+  }
+}
+
