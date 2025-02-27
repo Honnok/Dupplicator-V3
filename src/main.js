@@ -56,10 +56,30 @@ ipcMain.handle('read-directory', async (event, folderPath) => {
     return fs.readdirSync(folderPath);
 });
 
-// Calcule le hash d'un fichier
-ipcMain.handle('hash-file', async (event, filePath) => {
-    const fileBuffer = fs.readFileSync(filePath);
-    const hashSum = crypto.createHash('sha256');
-    hashSum.update(fileBuffer);
-    return hashSum.digest('hex');
+// Fonction pour trouver les fichiers .package
+ipcMain.handle('findPackages', async (event, folderPath) => {
+    const packageFiles = new Map();
+
+    function findFiles(dir) {
+        const files = fs.readdirSync(dir);
+        files.forEach(file => {
+            const filePath = path.join(dir, file);
+            if (fs.statSync(filePath).isDirectory()) {
+                findFiles(filePath);
+            } else if (filePath.endsWith('.package')) {
+                const fileName = path.basename(filePath);
+
+                packageFiles.set(fileName, (packageFiles.get(fileName) || 0) + 1);
+            }
+        });
+    }
+
+    findFiles(folderPath);
+    
+    // Filtre les fichiers en double
+    const duplicateFiles = Array.from(packageFiles.entries())
+        .filter(([_, count]) => count > 1)
+        .map(([fileName]) => fileName);
+
+    return duplicateFiles;
 });

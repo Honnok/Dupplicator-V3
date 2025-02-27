@@ -16,6 +16,7 @@
         
         <button id="scan-duplicates">Détecter les doublons</button>
         <button id="delete-duplicates">Supprimer les doublons</button>
+        <p id="blabla"></p>
     </div>
     
     <table id="duplicates-table">
@@ -29,18 +30,7 @@
         <tbody>
         </tbody>
     </table>
-
-    <script>
-        // Sélectionner un dossier
-        document.getElementById('select-folder').addEventListener('click', async () => {
-        const folderPath = await window.electronAPI.openFolderDialog();
-        if (folderPath) {
-            localStorage.setItem('savedFolder', folderPath);
-            document.querySelector('#selected-folder-path').textContent = folderPath;
-        } else {
-            document.querySelector('#selected-folder-path').textContent = 'Aucun dossier sélectionné';
-        }
-        });
-    </script>
+    
 </body>
+    <script src="script.js"></script>
 </html>
