@@ -9,16 +9,14 @@ document.getElementById('select-folder').addEventListener('click', async () => {
     }
     });
 
-// Ajouter un événement pour le bouton "Blabla"
 document.getElementById('scan-duplicates').addEventListener('click', async () => {
     const folderPath = localStorage.getItem('savedFolder');
     
     if (folderPath) {
         const packageFiles = await window.electronAPI.findPackages(folderPath);
         
-        // Affichage des noms de fichiers dans une balise <p>
-        const resultContainer = document.getElementById('blabla');
-        resultContainer.innerHTML = ''; // Vider le contenu précédent
+        const resultContainer = document.getElementById('FichierA');
+        resultContainer.innerHTML = '';
         
         packageFiles.forEach(file => {
             const p = document.createElement('p');
@@ -26,7 +24,6 @@ document.getElementById('scan-duplicates').addEventListener('click', async () =>
             resultContainer.appendChild(p);
         });
         
-        // Si aucun fichier trouvé, afficher un message
         if (packageFiles.length === 0) {
             const p = document.createElement('p');
             p.textContent = 'Aucun fichier .package trouvé';

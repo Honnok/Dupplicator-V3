@@ -15,21 +15,24 @@
         </div>
         
         <button id="scan-duplicates">Détecter les doublons</button>
-        <button id="delete-duplicates">Supprimer les doublons</button>
-        <p id="blabla"></p>
-    </div>
-    
-    <table id="duplicates-table">
-        <thead>
+        <button id="delete-duplicates">Supprimer tout les doublons</button>
+        <progress id="progress-bar" value="0" max="100" style="display: none;"></progress>
+        <table>
             <tr>
                 <th>Fichier</th>
-                <th>Doublon de</th>
+                <th>Chemin</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+            <tr>
+                <td id="FichierA"></td>
+                <td></td>
+                <td>
+                    <button>Ouvrir</button>
+                    <button>Supprimer</button>
+                </td>
+            </tr>
+        </table>
+    </div>
     
 </body>
     <script src="script.js"></script>

@@ -11,3 +11,16 @@
     display: flex;
     width: 100%;
 }
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse; /* Assure que les bordures ne se doublent pas */
+    border: 3px solid rgb(0, 0, 0); /* Bordure de table */
+}
+
+th, td {
+    border: 1px solid rgb(0, 0, 0); /* Bordure des cellules */
+    padding: 8px; /* Espacement à l'intérieur des cellules */
+    text-align: left; /* Alignement du texte à gauche (modifiable selon vos préférences) */
+}
